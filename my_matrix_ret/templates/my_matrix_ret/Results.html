@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your Results
+{% endblock %}
+
+{% block styles %}
+	<style>
+	#earns table, #earns th, #earns td, #earns tr {
+		border: 1px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+	#earns tr:nth-child(even){background-color: #f2f2f2;}
+	</style>
+{% endblock %}
+
+{% block content %}
+  
+   	<table id="earns">
+        <th>Source of Earnings</th> <th>Amount in $</th>
+		<tr>
+			<td> Participation Bonus </td> <td> {{ participation_fee |c}}  </td>
+		</tr>
+		<tr>
+			<td> Stage 1: You solved {{num_correct_first_task}} grids  </td> <td> {{first_task_payoff|c}}  </td> 
+		</tr>
+        <tr>
+            <td> Money Used </td> <td> {{investment_spending|c}}  </td>
+        </tr>
+		<tr>
+			<td> Stage 2: You solved {{num_correct_second_task}} grids and your card color was {{ player.card_color }}.</td>  <td> {{ second_task_earnings|c}} </td>
+		</tr>
+        
+        <tr>
+            <td>  Total  </td> <td>  {{total_prev_earnings|c}}   </td>
+        </tr>
+		
+	</table>
+    
+   <br>
+   
+    {% next_button %}
+{% endblock %}
+
+

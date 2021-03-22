@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+	Informed consent
+{% endblock %}
+
+{% block content %}
+	<div id="consent">
+		<p>Please review the following document.</p>
+
+		<iframe src="{% static "consent.pdf" %}" style="width: 100%; height: 600px;" frameborder="0"></iframe>
+
+		<button class="btn btn-primary" type="submit">I agree</button>
+		<button id="notagree" class="btn btn-primary" type="button">I do not agree</button>
+	</div>
+	<div id="notparticpating" style="display: none;">
+		<p>You decided to not participate in the experiment.</p>
+	</div>
+{% endblock %}
+
+
+{% block scripts %}
+	<script>
+
+		$ ( "#notagree" ).click(function() {
+			let confirmed = confirm("Are you sure you do not want to participate in the experiment?");
+
+			if (confirmed) {
+				// hide content
+				$("#consent").hide()
+				// display not particiating section
+				$("#notparticpating").show()
+
+				window.location.replace("https://app.prolific.co/submissions/complete?cc=80089DBF");
+			}
+		})
+	</script>
+{%endblock%}

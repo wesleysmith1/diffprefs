@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% block styles%}
+<style type="text/css">
+  body {
+    font-size: 150%;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+  <p></p>
+  {% formfield player.consent label = "Are you willing to begin the experiment?"  %}
+
+
+	{% next_button %}
+
+{% endblock %}

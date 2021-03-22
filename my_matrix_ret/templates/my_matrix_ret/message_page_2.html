@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+            img.disabled:hover {
+			cursor:not-allowed
+		}
+		img.disabled {
+			width: 33%;
+			height: 33%;
+		}
+    </style>
+{% endblock %}
+{% block content %}
+	<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/></br></br>
+	<p>
+        Before you see any grids, you will receive information about the color of the card in your envelope.  The information will be correct {{prob}}% of the time and wrong {{prob2}}% of the time.
+		
+    </p>
+    {% next_button %}
+{% endblock %}

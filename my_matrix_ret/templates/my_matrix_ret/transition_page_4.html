@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+    </style>
+{% endblock %}
+{% block content %}
+
+    <p>
+       It is time to reveal the contents of your envelope. Click on your envelope and identify the color of your card.
+    </p>
+	<p>
+	   <img id="envelope" onclick="document.getElementById('envelope').src = '{% static filename %}';" src="{% static "global/envelope_crop.jpg" %}"/>
+	   {% formfield player.inputted_card_color label = "Please select your card color below."%}
+	</p>
+	<p>
+		You will now see the results and your earnings from the experiment so far.
+	</p><br>
+	{% next_button %}
+
+{% endblock %}

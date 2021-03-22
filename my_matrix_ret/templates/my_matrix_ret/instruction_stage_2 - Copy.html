@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<u>STAGE 2</u>
+{% endblock %}
+{% block styles %}
+	<style>
+		table, th, td, tr{
+			border: 1px solid black; 
+			padding: 10px;
+			text-align: center;
+		}
+		img.disabled:hover {
+			cursor:not-allowed
+		}
+		tr:nth-child(even){background-color: #f2f2f2;}
+	</style>
+{% endblock %}
+{% block content %}
+	<h5>
+	In stage two, your task is again to count the number of ones in a grid, this time in a 15-minute interval. You will be paid for each grid you count correctly. Again you are welcome to surf the Internet <b>in a separate tab</b> at any time. You do not earn money by surfing the Internet.
+	</H5>
+	<p>
+	<H5>
+	The private contents of the envelope (please DO NOT open yet!) will affect your stage two earnings.  If the envelope contains a green card, you will earn $0.15 for each grid counted correctly.  If it contains a red card, each grid correctly counted will pay $0.02. You will not know the contents of the envelope until after stage two. 
+	</H5>
+	<p>
+	{% endblock %}
+
+{% block title %}
+Information about the color of the card
+{% endblock %}
+<H5>
+Before you see any grids, you will receive information about the color of the card in your envelope.  The information will be correct 60% of the time and wrong 40% of the time.
+</H5>
+<p>
+<H5>
+This means that if you have a green card in the envelope, the information will tell you that you have a green card 60% of the time. And if you have a red card, the information will tell you that you have a red card 60% of the time. 
+</H5>
+<p>
+<H5>
+You will open the envelope at the end of stage two.  Therefore, you will not know the color of your card until we complete stage two.
+</H5>
+
+{% block title %}
+<u>STAGE 3</u>
+{% endblock %}
+
+{% block content %}
+<H5>
+During stage three, you will be making a choice about playing a lottery. This task will be described on the computer screen when we all begin stage three.
+</H5>
+<p>
+<h5>
+Finally, you will be answering some basic survey questions at the end of the experiment.
+	</h5>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+        <h4>Please answer the following questions on the experiment's instructions. If you need assistance, please send a chat message in Zoom to the experimenter. </h4>
+
+	<p>	{% formfield player.instructions_quiz_input1 label = "1. Suppose you choose to use $3.80 to change the amount per grid that you would earn if you have a red card. If the card in your envelope is RED, how much would you earn for each grid solved correctly? Enter the amount you would earn per grid in the box below." %} </p>
+	<p> {% formfield player.instructions_quiz_input2 label = "2. Suppose you correctly solve 37 grids in stage two of the experiment. If the card in your envelope is GREEN, and you used $3.80 to change the amount per grid that you would earn if you have a red card, what are your total earnings in this stage of the experiment? Enter the total earnings you would earn in stage two in the box below." %} </p>
+	<p> {% formfield player.instructions_quiz_input3 label = "3. Suppose you correctly solve 37 grids in stage two of the experiment. If the card in your envelope is RED, and you did not use the $3.80 to change the amount per grid that you would earn if you have a red card, what are your total earnings in this stage of the experiment? Enter the total earnings you would earn in stage two in the box below." %} </p>
+	<p> {% formfield player.instructions_quiz_input6 label = "4. When will you be allowed to open your envelope?" %} </p>
+	<p> {% formfield player.instructions_quiz_input5 label = "5. If you do not use $3.80 to change the amount per grid that you would earn if you have a red card, and the card in your envelope is RED, how much do you earn for each correctly solved grid exercise in stage two of the experiment? Enter the amount you would earn per grid in the box below." %} </p>
+	<p> {% formfield player.instructions_quiz_input4 label = "6. When you see information about the color of the card in your envelope, what percentage of the time will that information be correct?" %} </p>
+	
+    
+	{% next_button %}
+
+	<hr>
+
+	<B><P> STAGE 2 INSTRUCTIONS (repeated here for your reference)</P></B>
+		<p>In Stage 2, your task is again to count the number of ones in a grid, this time in a 15-minute interval. You will be paid for each grid you count correctly. Again you are welcome to surf the Internet <b>in a separate tab</b> at any time. You do not earn money by surfing the Internet. In this stage, you are not required to complete a specific number of grids like you were in Stage 1.
+	</p>
+	<p>
+		The private contents of the envelope (again, you are not able to open yet!) will affect your Stage 2 earnings.  If the envelope contains a green card, you will earn $0.15 for each grid counted correctly.  If it contains a red card, each grid correctly counted will pay $0.02. You will not know the contents of the envelope until after Stage 2. 
+	</p>
+	<img src="{% static "global/imgtr2.JPG" %}" />
+	<p><b>Information about the color of the card</b></p>
+	<p>
+		Before you see any grids, you will receive information about the color of the card in your envelope.  The information will be correct 60% of the time and wrong 40% of the time.
+	</p>
+	<p>
+		This means that if you have a green card in the envelope, the information will tell you that you have a green card 60% of the time. And if you have a red card, the information will tell you that you have a red card 60% of the time. 
+	</p>
+	<p>
+		You will open the envelope at the end of Stage 2.  Therefore, you will not know the color of your card until we complete Stage 2.
+	</p>	
+		<p><b>You can change red card earnings</b></p>
+	<p>
+		You will have the option to use $3.80 of your earnings to increase the amount you would earn per grid solved if the card in the envelope happens to be red. If you use the $3.80, the grids are worth $0.05 each if you have a red card verses $0.02 if you do not use the $3.80. The grid earnings remain at $0.15 if you have a green card, with or without using the $3.80. Using the $3.80 will subtract $3.80 from your Stage 2 earnings.
+	<img src="{% static "global/imginvpg05.jpg" %}" />
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+            img.disabled:hover {
+			cursor:not-allowed
+		}
+		img.disabled {
+			width: 33%;
+			height: 33%;
+		}
+    </style>
+{% endblock %}
+{% block content %}
+	<B><P>A FEW REMINDERS</P></B>
+	<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/></br></br>
+	<p>
+		For the next 15 minutes of the experiment, you will be counting more grids. The amount you earn in this stage is based on the following:<br><br>
+		<ul>
+			<li>The number of grids you solve correctly.</li>
+			<li>The color of the card in your envelope (please do not open yet).</li>
+			<li>Whether or not you chose to use $3.80 to change red card earnings.</li>
+		</ul>
+		You are welcome to surf the Internet <b>in a separate tab</b> at any time.
+	</p> <br>
+	{% next_button %}
+
+{% endblock %}

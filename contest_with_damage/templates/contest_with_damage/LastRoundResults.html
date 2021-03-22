@@ -1,0 +1,124 @@
+{% extends "contest_with_damage/Page.html" %}
+{% load otree %}
+
+
+
+{% block content %}
+   <div id = "row1">
+   <div id="column1">
+	<h4>Results and Round History</h4>
+
+    <p>
+    {%if player.is_winner%}
+        You obtained the good.
+    {%else%}
+        You did not obtain the good.
+    {%endif%}
+    <br>
+    Your bid was {{player.bid_amount}}.
+    <br>
+    Your loss factor was {{player.loss_factor}}
+    <br>
+    The other participant's bid caused you to lose {{player.loss_from_others_bid}}
+    <br>
+    Your earnings for this round is {{player.round_earnings}}
+    <br>
+    <br>
+    <br>
+    Your earnings was calculated as follows:
+    <br>
+    </p>
+    <table class="table">
+      <tr>
+      <th> Value from winning or not winning the good </th>
+      <th> - </th>
+      <th> Your Bid Amount </<th>
+      <th>  - </<th>
+      <th> Your Loss Factor </<th>
+      <th>  * </<th>
+      <th> Other's Bid Amount  </<th>
+      <td>  = </th>
+      <th> Your Earnings for this Round </th>
+      </tr>
+     <font size="5">
+       <tr>
+     <td>{%if player.is_winner%} {{Constants.item_value|c}} {%else%} $0.00 {%endif%}</td> <td>-</td><td> {{player.bid_amount}}</td><td> - </td><td>{{player.loss_factor}}</td><td> *</td> <td>{{player.others_bid_amount}}</td> <td>=</td> <td>{{player.round_earnings}}</td>
+      </tr>
+     </font>
+     </table>
+    <br>
+    <br>
+    <br>
+    <p>
+    The other participant's bid was {{player.others_bid_amount}}.
+    <br>
+    Their loss factor was {{partner.loss_factor}}
+    <br>
+    They lost {{partner.loss_from_others_bid}} as a result of your bid.
+    <br>
+    Their earnings were {{partner.round_earnings}}
+    <br>
+    </p>
+    <br>
+    <br>
+    <br>
+
+    {% next_button %}
+    </div>
+
+
+    <div id="column2">
+
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Did you obtain the good?
+            <th>Your Bid</th>
+            <th>Your Loss Factor</th>
+            <th>Loss Resulting from Other's Bid</th>
+            <th>Your Earnings</th>
+
+
+        </tr>
+        {% for p in player_history %}
+            <tr>
+
+                <td>{{p.round_number}}</td>
+                <td>{%if p.is_winner%} You Won! {% else %} You Lost. {% endif %}</td>
+				        <td>{{p.bid_amount}}</td>
+                <td>{{p.loss_factor}}</td>
+                <td>{{p.loss_from_others_bid}} </td>
+                <td>{{p.round_earnings}}</td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div id="column3">
+        <table class="table">
+            <tr>
+              <th>Round</th>
+              <th>Did they obtain the good?
+              <th>Other's Bid</th>
+              <th>Other's Loss Factor</th>
+              <th>Other's Loss Resulting From Your Bid</th>
+              <th>Other's Earnings</th>
+            </tr>
+
+        {% for o in partner_history %}
+        <tr>
+        <td>{{o.round_number}}</td>
+        <td>{%if o.is_winner%} They Won! {% else %} They Lost. {% endif %}</td>
+        <td>{{o.bid_amount}}</td>
+        <td>{{o.loss_factor}}</td>
+        <td>{{o.loss_from_others_bid}}</td>
+        <td>{{o.round_earnings}}</td>
+         </tr>
+        {%endfor%}
+        </table>
+    </div>
+
+    </div>
+
+{% endblock %}

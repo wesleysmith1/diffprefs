@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+            img.disabled:hover {
+			cursor:not-allowed
+		}
+		img.disabled {
+			width: 33%;
+			height: 33%;
+		}
+    </style>
+{% endblock %}
+{% block content %}
+<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/></br>
+<h2>
+    Participant Instructions
+</h2>
+<h2>Welcome!</h2>
+<p>Thank you for participating today.  The experimental session and processing your earnings will last approximately 60 minutes. This research is voluntary, you are free to opt out at any point.  At the end of the session, each of you will receive a <span>&#36;</span>5 participation and completion bonus that will be added to your experimental earnings. Experimental earnings are determined by the choices you make during the research session.</p>
+ <p>Please follow the instructions carefully. After we have read the instructions, there will be time to ask clarifying questions. When we are done going through the instructions, you will answer a few brief questions to ensure your understanding.</p>
+<p>Your anonymity is assured as we will not reveal any information about your choices or your identity to other participants (or anyone else) before or after the research session.</p>
+<p>There are some very important rules that you must follow during the experiment. Primarily, we ask that you give your complete attention to the exercises and questions in this experiment by minimizing distractions.</p>
+<ol>
+<li>Please find a quiet place where you can partcipate in the experiment without distraction.</li>
+<li>Silence your cell phone and any other electronic device that may distract you while you participate in this experiment. </li>
+<li>Please do not step away from the experiment. Plan on participating until the experiment concludes.</li>
+<li>Do not talk or chat to any of the other participants.</li>
+<li> Please follow along as we read instructions. Please do not surf the Internet while we go through the instructions.
+</ol>
+<p>If any of the rules above are violated, we may have to terminate your participation in the experiment.
+If you have any questions, please raise your virtual hand and a researcher will assist you. 
+</p>
+
+<p>Please wait for further directions from the research team. </p>
+
+<p>When indicated, we will go to the next page together and begin the instructions.</p>
+
+{% next_button %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "otree/Page.html" %}
+{% load otree static %}
+
+{% block global_styles  %}
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}
+
+{% block styles %}
+<style>
+.otree-body {
+      max-width:100%;
+}
+#row1{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    max-width:100%;
+}
+
+#column1{
+    display:flex;
+    flex-direction:column;
+    width: 40%;
+    max-width: 40%;
+    text-align: center
+}
+
+
+#column2{
+    display:flex;
+    flex-direction:column;
+    width:25%;
+}
+#column3{
+    display:flex;
+    flex-direction:column;
+    width:25%;
+}
+</style>
+{% endblock %}

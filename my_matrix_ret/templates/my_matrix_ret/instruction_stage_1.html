@@ -1,0 +1,72 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Overview and Instructions for Stage 1
+{% endblock %}
+{% block styles %}
+	<style>
+		table, th, td, tr{
+			border: 1px solid black; 
+			padding: 10px;
+			text-align: center;
+		}
+		img.disabled:hover {
+			cursor:not-allowed
+		}
+		tr:nth-child(even){background-color: #f2f2f2;}
+		body {
+			font-size: 150%;
+        }
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		table {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+{% endblock %}
+{% block content %}
+	<b>Overview</b>
+	<ul>
+		<li>There are three stages to this experiment.</li>
+		<li>You may use a calculator during the experiment if you wish.</li>
+		<li>You have all received a virtual sealed envelope. You will NOT be able to open it at this time, but you will later in the experiment.</li>
+	</ul>
+	<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/>
+	</br></br>
+	<ul>
+		<li>The content of the envelope is either a green or red card. 35 out of 100 times the envelope will contain a red card.  65 out of 100 times the envelope will contain a green card.  For example, if there were 100 people in this experiment, then 65 people would have a green card and 35 would have a red card. Again, you will not be able to open the envelope until later in the experiment. The image below illustrates 65 green cards and 35 red cards.</li>
+	</ul>
+	<img src="{% static "global/imggrid.jpg" %}"/>
+	</br></br>
+	<b><u>STAGE ONE:</u></b>
+	<p>During the first stage of the experiment, you can earn money by performing a computerized task. The task consists of a grid with rows of zeros and ones. An example is shown in the figure below. Your task is to count the number of ones in the grid. You will earn $0.15 per grid counted correctly. In this stage you are required to solve 28 grids and earn $4.20. This should take you about 5 minutes. If at any point you would like to surf the Internet <b>in a separate tab</b> during this stage, go to a browser and enjoy. Remember to complete 28 grids.</p>
+	<table>
+		<tr>
+			<td>1</td><td>0</td><td>1</td><td>1</td><td>1</td>
+		</tr>
+		<tr>
+			<td>0</td><td>1</td><td>0</td><td>1</td><td>0</td>
+		</tr>
+		<tr>
+			<td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+		</tr>
+		<tr>
+			<td>0</td><td>0</td><td>1</td><td>0</td><td>0</td>
+		</tr>
+		<tr>
+			<td>1</td><td>1</td><td>1</td><td>0</td><td>0</td>
+		</tr>
+	</table>
+	</br>
+
+	<!-- todo: should we remove this? -->
+	<p>At the end of Stage 1, please wait for everyone to finish and for the researchers to go over Stage 2 instructions.</br><br>If there are no questions, we will now proceed to Stage 1.</p>
+
+	{% next_button %}
+
+	{%endblock%}

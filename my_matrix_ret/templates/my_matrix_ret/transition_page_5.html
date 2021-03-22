@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+    </style>
+{% endblock %}
+{% block content %}
+	<B><P>YOU ARE ALMOST DONE</P></B>
+	<p>
+		<br>
+		In the next stage there is one additional experimental exercise for you to earn money.  Following the exercise, you will be asked to answer a few questions and a short survey.<br><br>
+	</p>
+	{% next_button %}
+
+{% endblock %}

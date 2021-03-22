@@ -1,0 +1,163 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Second Set of Counting Exercises
+{% endblock %}
+
+{% block styles %}
+	<style>
+	#task table, #task th, #task td, #task tr {
+		border: 1px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+	#task tr:nth-child(even){background-color: #f2f2f2;}
+
+	#earns table, #earns th, #earns td, #earns tr {
+		border: 1px solid black;
+		padding: 10px;
+		text-align: center;
+	}
+	#earns tr:nth-child(even){background-color: #f2f2f2;}
+  /* .otree-timer {
+    display: none;
+  } */
+	</style>
+
+{% endblock %}
+
+{% block content %}
+<!-- <p id="time">You have been solving problems for 0 minutes, and 0 seconds</p> -->
+	<table id="earns">
+
+        <th>Source of Earnings</th> <th>Amount in $</th>
+		<tr>
+			<td> Participation Bonus </td> <td> {{ participation_fee|c }}  </td>
+		</tr>
+		<tr>
+			<td> Stage 1: You solved <span id="num_correct_first_task"> {{ num_correct_first_task }} </span> grids  </td> <td id="first_task_payoff"> {{first_task_payoff|c}}  </td>
+		</tr>
+        <tr>
+            <td> Money Used </td> <td> {{investment_spending|c}} </td>
+        </tr>
+        <tr>
+            <td> Total </td> <td> {{total_prev_earnings|c}}  </td>
+		</tr>
+	</table>
+    <br>
+    <br>
+    <table id="earns">
+        <th> Earnings from this part of the experiment, you have solved <span id="num_correct_second_task"> {{num_correct_second_task}} </span> grids so far. </th> <th> Amount in $</th>
+		<tr>
+			<td> If your card color is RED: </td> <td id="earningsRED"> {{ earningsRED }}</td>
+		</tr>
+		<tr>
+			<td> If your card color is GREEN: </td> <td id="earningsGREEN"> {{earningsGREEN}}	</td>
+		</tr>
+
+    </table>
+    <br>
+
+	<p>
+		Please count the number of ones in the grid below. Type your answer into the box, and click the Submit button.
+    </p>
+	
+    <b><span id="correct_last_round">
+
+    </span></b>
+	
+
+	<table id="task">
+		<tr>
+			<td id="int0">{{ int0 }} </td> <td id="int1">{{ int1 }} </td> <td id="int2">{{ int2 }} </td> <td id="int3">{{ int3 }} </td> <td id="int4">{{ int4 }}</td>
+		</tr>
+		<tr>
+			<td id="int5">{{ int5 }} </td> <td id="int6">{{ int6 }} </td> <td id="int7">{{ int7 }} </td> <td id="int8">{{ int8 }} </td> <td id="int9">{{ int9 }} </td>
+		</tr>
+		<tr>
+			<td id="int10">{{ int10 }} </td> <td id="int11">{{ int11 }} </td> <td id="int12">{{ int12 }} </td> <td id="int13">{{ int13 }} </td> <td id="int14">{{ int14 }} </td>
+		</tr>
+		<tr>
+			<td id="int15">{{ int15 }} </td> <td id="int16">{{ int16 }} </td> <td id="int17">{{ int17 }} </td> <td id="int18">{{ int18 }} </td> <td id="int19">{{ int19 }} </td>
+		</tr> <br>
+		<tr>
+			<td id="int20">{{ int20 }} </td> <td id="int21">{{ int21 }} </td> <td id="int22">{{ int22 }} </td> <td id="int23">{{ int23 }} </td> <td id="int24">{{ int24 }} </td>
+		</tr> <br>
+	</table>
+
+	<br>
+
+	<form method="post" url='{% url "verify" %}'>{%csrf_token%}
+	<input type="text" name="Number of Ones" id="num_of_ones"/>
+	<input type="hidden" name="user.input" id ="user.input"/>
+	<button type="button" id="submitButton"> Submit </button>
+
+	</form>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+
+		// var timer = document.getElementById("time");
+		// setInterval(function() {
+		// 	var delta = (new Date().getTime() / 1000) - start; // seconds elapsed since start
+
+		// 	time = Math.floor(delta)
+
+		// 	timer.innerHTML = "You have been solving problems for "+Math.floor(time/60)+" minutes, and "+time%60+" seconds";
+
+		// }, 1000); // update about every second
+ 
+
+//     var timer = document.getElementById("time");
+//     window.setInterval(function(){
+//     time++;
+//     timer.innerHTML = "You have been solving problems for "+Math.floor(time/60)+" minutes, and "+time%60+" seconds";
+//   }, 1000);
+
+		$ ( " #submitButton " ).click(function() {
+			var user_input=$(" #num_of_ones ").val();
+			// var s= $(" #s ").val()
+			var id = '{{ id }}'
+			var page_version = '{{ version }}'
+			if(!isNaN(user_input) && !($.trim(user_input).length === 0) ){
+				$.ajax({
+					data: {'user_input': user_input, 'id':id,'page_version':page_version},
+					url: '{% url "verify" %}',
+					dataType:'json',
+					success: function(result) {
+						for (let i = 0; i < 25; i++) {
+							document.getElementById("int" + i).innerHTML = result.ints[i]
+						}
+						document.getElementById("num_of_ones").value = ''
+						document.getElementById("num_correct_first_task").innerHTML = result.num_correct_first_task;
+						document.getElementById("num_correct_second_task").innerHTML = result.num_correct_second_task;
+						var r = result.earningsRED;
+						document.getElementById("earningsRED").innerHTML = r.toFixed(2);
+						var g = result.earningsGREEN;
+						document.getElementById("earningsGREEN").innerHTML = g.toFixed(2);
+                        if(result.correct_last_round){
+                            document.getElementById("correct_last_round").innerHTML="Your last answer was correct.";
+                        } else{
+                            document.getElementById("correct_last_round").innerHTML="Your last answer was incorrect.";
+                        }
+					},
+				});
+			}else{
+				alert("An error has occurred. Please only input a number.");
+			}
+		});
+
+        $(document).ready(function() {
+            $(window).keydown(function(event){
+                if(event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                    }
+            });
+        });
+
+	</script>
+{%endblock%}

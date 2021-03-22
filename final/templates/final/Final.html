@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+    </style>
+{% endblock %}
+
+{% block content %}
+	<p><b>Thank you for participating in the experiment. </p></b>
+				
+	<p>			
+				We will process your earnings and deliver your payment to you based on the selection you made when you signed up to participate. 
+    </p>  
+                
+    <p>   
+        If you have any questions about the experiment, please feel free to contact any of the researchers.
+    </p>   
+        
+    <p> Therese Grijalva, tgrijalva@weber.edu, Department of Economics, Weber State University </p>
+        
+    <p> Brandon Koford, brandonkoford@weber.edu, Department of Economics, Weber State University </p>
+       
+    <p> Lucas Rentschler, lucas.rentschler@usu.edu, Department of Economics and Finance, Utah State University </p>
+
+    <button id="submit" type="submit" class="btn btn-primary" style="display: none;">Finish</button>
+
+    <script>
+        $( document ).ready(function() {
+            $("#submit").click(function(){
+                window.location.replace("https://app.prolific.co/submissions/complete?cc=80089DBF");
+            }); 
+        });
+    </script>
+
+{% endblock %}
+  
+
+   
+   
+   
+   
+   

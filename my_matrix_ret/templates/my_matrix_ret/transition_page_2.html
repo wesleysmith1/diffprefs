@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+{% block styles %}
+<style type="text/css">
+            body {
+font-size: 150%;
+                }
+            img.disabled:hover {
+			cursor:not-allowed
+		}
+		img.disabled {
+			width: 33%;
+			height: 33%;
+		}
+    </style>
+{% endblock %}
+{% block content %}
+	<P><B>STAGE 2 REMINDER</P></B>
+	<p>
+		In this stage, your task is once again count the number of ones in a grid. You will be given 15 minutes. <br> <br>
+		Again, you will not be able to open your envelope yet. <br> <br>
+		<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/></br></br>
+		If your envelope contains a green card, each grid correctly counted will pay $0.15. If it contains a red card, each grid correctly counted will pay $0.02. You will have a chance to use $3.80 to alter red card earnings. Recall that 35 out of 100 times, the envelope will contain a red card, and 65 out of 100 times it will contain a green card. <br> <br>
+	</p>
+	<img src="{% static "imgtr2.JPG" %}" onerror="alert('Image Tr2 Error')"><br><br>
+	{% next_button %}
+
+{% endblock %}

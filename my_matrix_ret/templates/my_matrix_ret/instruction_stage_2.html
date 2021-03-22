@@ -1,0 +1,65 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+OVERVIEW FOR STAGES 2 AND 3
+{% endblock %}
+{% block styles %}
+	<style>
+		table, th, td, tr{
+			border: 1px solid black; 
+			padding: 10px;
+			text-align: center;
+		}
+		img.disabled:hover {
+			cursor:not-allowed
+		}
+		tr:nth-child(even){background-color: #f2f2f2;}
+            body {
+font-size: 150%;
+                }
+            img.disabled:hover {
+			cursor:not-allowed
+		}
+		img.disabled {
+			width: 33%;
+			height: 33%;
+		}
+	</style>
+{% endblock %}
+{% block content %}
+	<img class="disabled" title="DO NOT OPEN YET!" onclick="alert('Sorry, you can\'t open the envelope at this time.');" src="{% static "global/envelope_crop2.jpg" %}"/></br></br>
+	<B><P> STAGE 2 </P></B>
+		<p>In Stage 2, your task is again to count the number of ones in a grid, this time in a 15-minute interval. You will be paid for each grid you count correctly. Again you are welcome to surf the Internet <b>in a separate tab</b> at any time. You do not earn money by surfing the Internet. In this stage, you are not required to complete a specific number of grids like you were in Stage 1.
+	</p>
+	<p>
+		The private contents of the envelope (again, you are not able to open yet!) will affect your Stage 2 earnings.  If the envelope contains a green card, you will earn $0.15 for each grid counted correctly.  If it contains a red card, each grid correctly counted will pay $0.02. You will not know the contents of the envelope until after Stage 2. 
+	</p>
+	<img src="{% static "global/imgtr2.JPG" %}" />
+	<p><b>Information about the color of the card</b></p>
+	<p>
+		Before you see any grids, you will receive information about the color of the card in your envelope.  The information will be correct 60% of the time and wrong 40% of the time.
+	</p>
+	<p>
+		This means that if you have a green card in the envelope, the information will tell you that you have a green card 60% of the time. And if you have a red card, the information will tell you that you have a red card 60% of the time. 
+	</p>
+	<p>
+		You will open the envelope at the end of Stage 2.  Therefore, you will not know the color of your card until we complete Stage 2.
+	</p>	
+		<p><b>You can change red card earnings</b></p>
+	<p>
+		You will have the option to use $3.80 of your earnings to increase the amount you would earn per grid solved if the card in the envelope happens to be red. If you use the $3.80, the grids are worth $0.05 each if you have a red card verses $0.02 if you do not use the $3.80. The grid earnings remain at $0.15 if you have a green card, with or without using the $3.80. Using the $3.80 will subtract $3.80 from your Stage 2 earnings.
+	<img src="{% static "global/imginvpg05.jpg" %}" />
+	<B><P>STAGE 3</P></B>
+	<p>
+		During Stage 3, you will be making a choice about playing a lottery. This task will be described on the computer screen when we all begin Stage 3.
+	</p>
+	<p>
+		Finally, you will be answering some basic survey questions at the end of the experiment.
+	</p>
+	<p>
+		On the next screen, you will answer some questions to ensure your understanding of the experiment.
+	</p>
+
+	{% next_button %}
+{% endblock %}
