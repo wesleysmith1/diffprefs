@@ -5,35 +5,35 @@
 {% block content %}
 	<h4> Please answer the following survey questions. If you would like to review the instructions, please scroll to the bottom of the page.</h4>
     
-	<p> {% formfield player.gender label = "What is your gender?" %} </p>
+	<p> {% formfield player.gender label="What is your gender?" %} </p>
 	
-	<p> {% formfield player.major label = "Into what category does your major most closely fall?" %} </p>
+	<p> {% formfield player.major label="Into what category does your major most closely fall?" %} </p>
 
-	<p> {% formfield player.age label = "What is your age?" %} </p>
+	<p> {% formfield player.age label="What is your age?" %} </p>
 	
-	<p> {% formfield player.ethnicity label = "Please select the following choice that most closely represents your ethnicity." %} </p>
+	<p> {% formfield player.ethnicity label="Please select the following choice that most closely represents your ethnicity." %} </p>
 	
-	<p> {% formfield player.marital_status label = "Please select the following choice that most closely represents your marital status." %} </p>
+	<p> {% formfield player.marital_status label="Please select the following choice that most closely represents your marital status." %} </p>
 	
-	<p> {% formfield player.employment label = "Are you currently employed?" %} </p>
+	<p> {% formfield player.employment label="Are you currently employed?" %} </p>
 	
-	<p> {% formfield player.insurance label = "Do you currently have health insurance?" %} </p>
+	<p> {% formfield player.insurance label="Do you currently have health insurance?" %} </p>
 	
-	<p> {% formfield player.annual_income label = "Please select the following category that most accurately describes your personal annual income." %} </p>
+	<p> {% formfield player.annual_income label="Please select the following category that most accurately describes your personal annual income." %} </p>
 	
-	<p> {% formfield player.credit_card label = "Do you have a credit card?" %} </p>
+	<p> {% formfield player.credit_card label="Do you have a credit card?" %} </p>
 
-	<p> {% formfield player.smoke label = "Do you smoke?" %} </p>
+	<p> {% formfield player.smoke label="Do you smoke?" %} </p>
 
-	<p> {% formfield player.alcohol label = "Do you consume alcohol?" %} </p>
+	<p> {% formfield player.alcohol label="Do you consume alcohol?" %} </p>
 	
-	<p> {% formfield player.parent_education label = "What is the highest grade completed by the most educated of your parents?" %}</p>
+	<p> {% formfield player.parent_education label="What is the highest grade completed by the most educated of your parents?" %}</p>
 	
-	<p> {% formfield player.year_in_school label = "What year in school are you currently in?" %}</p>
+	<p> {% formfield player.year_in_school label="What year in school are you currently in?" %}</p>
 	
-	<p> {% formfield player.homework label = "As best as you can estimate, how many hours of homework do you have left to complete today? (round up to the nearest hour)" %}</p>
+	<p> {% formfield player.homework label="As best as you can estimate, how many hours of homework do you have left to complete today? (round up to the nearest hour)" %}</p>
 	
-	<p> {% formfield player.experimentplay label = "Have you ever participated in an economics experiment?" %} </p>
+	<p> {% formfield player.experimentplay label="Have you ever participated in an economics experiment?" %} </p>
 
 	{% next_button %}
 

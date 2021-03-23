@@ -5,13 +5,13 @@
 {% block content %}
 	<h4> Thank you for participating in the experiment. Please enter your information below so we can pay you. </h4>
     
-	<p> {% formfield player.name label = "What is your name?" %} </p>
+	<p> {% formfield player.name label="What is your name?" %} </p>
 	
-	<p> {% formfield player.payment_type label = "Choose one of the following options to receive payment." %} </p>
+	<p> {% formfield player.payment_type label="Choose one of the following options to receive payment." %} </p>
 
-	<p> {% formfield player.payment_id label = "Enter the payment id for the option selected above." %} </p>
+	<p> {% formfield player.payment_id label="Enter the payment id for the option selected above." %} </p>
 
-	<p> {% formfield player.payment_id_confirmation label = "Re-enter your payment id." %} </p>
+	<p> {% formfield player.payment_id_confirmation label="Re-enter your payment id." %} </p>
 	
 	{% next_button %}
 
